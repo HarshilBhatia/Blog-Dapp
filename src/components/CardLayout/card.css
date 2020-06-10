@@ -1,0 +1,12 @@
+.cards{
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    padding-top: 0px;   
+}
+
+.adj-body{
+    margin-top: 0px;
+    padding-top:10px ;
+    padding-right:10px;
+}

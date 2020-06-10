@@ -1,0 +1,25 @@
+.nav{
+    border-bottom: 0.5px rgb(148, 146, 146)  solid;
+    color:black;
+}
+
+.text-navbar{
+    margin: 14px 5px;/* 
+    background: green; */
+    font-size: 15.5px;
+    color:black;
+    font-weight: 450;
+}
+.text-navbar:hover{
+    cursor: pointer;
+    color:rgb(17, 17, 83);
+}
+
+.address{
+    /* 
+    background: green; */
+    padding:15px;
+    font-size: 10.5px;
+    color:black;
+    font-weight: 400;
+}

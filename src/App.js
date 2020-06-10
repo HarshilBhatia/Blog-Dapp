@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import Web3 from "web3";
 import BLOG from "./abis/Blog.json";
+import Navbar from "./components/Navbar";
+import CardLayout from "./components/CardLayout/CardLayout";
+import Footer from "./components/Footer";
+import Flag from "./components/Flag";
 
 class App extends Component {
   constructor() {
@@ -11,9 +15,11 @@ class App extends Component {
       blog: null,
       postCount: 0,
       posts: [],
+      value: "",
     };
 
     this.convertObject = this.convertObject.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentWillMount() {
@@ -21,10 +27,10 @@ class App extends Component {
     await this.loadBlockchainData();
   }
 
-  convertObject (post) {
-    var _id=post.id.toNumber();
-    var _amount=post.amount.toNumber();
-    return [_id,post.content,post.blog_creater,_amount];
+  convertObject(post) {
+    var _id = post.id.toNumber();
+    var _amount = post.amount.toNumber();
+    return [_id, post.content, post.blog_creater, _amount];
   }
 
   async loadWeb3() {
@@ -71,7 +77,6 @@ class App extends Component {
         this.setState({
           posts: [...this.state.posts, this.convertObject(get_post)],
         });
-        
       }
 
       this.setState({
@@ -82,12 +87,18 @@ class App extends Component {
     }
   }
 
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
   render() {
     return (
       <div>
-        {this.state.account}<br />
-        {this.state.postCount}<br />
-        {this.state.posts}
+        <Navbar address={this.state.account} />
+        {this.state.value}
+        <CardLayout />
+        <Flag />
+        <Footer />
       </div>
     );
   }
